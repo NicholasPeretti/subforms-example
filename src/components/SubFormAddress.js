@@ -19,13 +19,13 @@ export const defaultValues = {
   [COUNTRY]: ""
 };
 
-export const validationSchema = {
+export const validationSchema = () => ({
   [ADDRESS]: yup.string().required(ERROR_REQUIRED),
   [NUMBER]: yup.string().required(ERROR_REQUIRED),
   [CITY]: yup.string().required(ERROR_REQUIRED),
   [ZIP]: yup.string().required(ERROR_REQUIRED),
   [COUNTRY]: yup.string().required(ERROR_REQUIRED)
-};
+});
 
 export default function SubFormAddress({ namespace }) {
   const withNamespace = addNamespace(namespace);

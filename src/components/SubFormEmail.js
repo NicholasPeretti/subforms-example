@@ -3,7 +3,7 @@ import * as yup from "yup";
 import FormikInputText from "./FormikInputText";
 import { ERROR_INVALID_EMAIL, ERROR_REQUIRED } from "../constants";
 
-export const validationSchema = isRequired =>
+export const validationSchema = ({ isRequired }) =>
   isRequired
     ? yup
         .string()

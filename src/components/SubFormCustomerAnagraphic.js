@@ -13,7 +13,7 @@ export const defaultValues = {
   [LAST_NAME]: ""
 };
 
-export const validationSchema = isRequired =>
+export const validationSchema = ({ isRequired }) =>
   isRequired
     ? {
         [FIRST_NAME]: yup.string().required(ERROR_REQUIRED),

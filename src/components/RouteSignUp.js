@@ -17,11 +17,15 @@ const defaultValues = {
   [ADDRESS]: SubFormAddressMeta.defaultValues
 };
 
-const validationSchema = yup.object({
-  [CUSTOMER]: yup.object(SubFormCustomerMeta.validationSchema),
-  [PASSWORD]: SubFormPasswordCheckMeta.validationSchema,
-  [ADDRESS]: yup.object(SubFormAddressMeta.validationSchema)
-});
+const validationSchema = yup.lazy(values =>
+  yup.object({
+    [CUSTOMER]: yup.object(SubFormCustomerMeta.validationSchema()),
+    [PASSWORD]: SubFormPasswordCheckMeta.validationSchema({
+      values: values[PASSWORD]
+    }),
+    [ADDRESS]: yup.object(SubFormAddressMeta.validationSchema())
+  })
+);
 
 export default function RouteSignUp() {
   return (

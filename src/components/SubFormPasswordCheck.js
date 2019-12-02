@@ -1,23 +1,23 @@
-import React from 'react'
-import * as yup from 'yup'
-import Grid from '@material-ui/core/Grid'
-import FormikInputText from './FormikInputText'
-import addNamespace from '../helpers/addNamespace'
+import React from "react";
+import * as yup from "yup";
+import Grid from "@material-ui/core/Grid";
+import FormikInputText from "./FormikInputText";
+import addNamespace from "../helpers/addNamespace";
 import {
   ERROR_REQUIRED,
   ERROR_UNMATCHING_PASSWORDS,
   ERROR_PASSWORD_TOO_SHORT
-} from '../constants'
+} from "../constants";
 
-export const PASSWORD = 'PASSWORD'
-export const PASSWORD_CHECK = 'PASSWORD_CHECK'
+export const PASSWORD = "PASSWORD";
+export const PASSWORD_CHECK = "PASSWORD_CHECK";
 
 export const defaultValues = {
-  [PASSWORD]: '',
-  [PASSWORD_CHECK]: ''
-}
+  [PASSWORD]: "",
+  [PASSWORD_CHECK]: ""
+};
 
-export const validationSchema = yup.lazy((values = defaultValues) => {
+export const validationSchema = ({ values }) => {
   return yup.object({
     [PASSWORD]: yup
       .string()
@@ -27,15 +27,15 @@ export const validationSchema = yup.lazy((values = defaultValues) => {
       .string()
       .required(ERROR_REQUIRED)
       .test(
-        'should have the same value of password',
+        "should have the same value of password",
         ERROR_UNMATCHING_PASSWORDS,
         value => value === values[PASSWORD]
       )
-  })
-})
+  });
+};
 
 export default function SubFormPasswordCheck({ namespace }) {
-  const withNamespace = addNamespace(namespace)
+  const withNamespace = addNamespace(namespace);
 
   return (
     <React.Fragment>
@@ -54,5 +54,5 @@ export default function SubFormPasswordCheck({ namespace }) {
         />
       </Grid>
     </React.Fragment>
-  )
+  );
 }

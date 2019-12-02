@@ -3,7 +3,7 @@ import "./App.css";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import RouteHome from "./components/RouteHome";
 import RouteSignUp from "./components/RouteSignUp";
 import RouteCheckout from "./components/RouteCheckout";

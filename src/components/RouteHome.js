@@ -3,7 +3,7 @@ import React from "react";
 export default function RouteHome() {
   return (
     <div>
-      <img src="famazon.jpg" style={{ width: "100%" }} />
+      <img src="famazon.jpg" style={{ width: "100%" }} alt="famazon logo" />
       <p style={{ textAlign: "center" }}>
         This is the official Fake-Amazon, please buy something
       </p>

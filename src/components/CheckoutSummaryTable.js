@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 import {
   Paper,
   Table,
   TableHead,
   TableBody,
-  TableFooter,
   TableRow,
   TableCell
-} from '@material-ui/core'
+} from "@material-ui/core";
 
 export default function CheckoutSummaryTable({ items }) {
   return (
@@ -27,12 +26,12 @@ export default function CheckoutSummaryTable({ items }) {
           {items && items.length ? (
             <React.Fragment>
               {items.map(({ description, price }, index) => (
-                <TableRow>
+                <TableRow key={index}>
                   <TableCell>{description}</TableCell>
                   <TableCell align="right">{price.toFixed(2)} €</TableCell>
                 </TableRow>
               ))}
-              <TableRow style={{ background: '#FFF3E0' }}>
+              <TableRow style={{ background: "#FFF3E0" }}>
                 <TableCell>
                   <strong>Total</strong>
                 </TableCell>
@@ -40,7 +39,7 @@ export default function CheckoutSummaryTable({ items }) {
                   <strong>
                     {items
                       .reduce((sum, item) => sum + item.price, 0)
-                      .toFixed(2)}{' '}
+                      .toFixed(2)}{" "}
                     €
                   </strong>
                 </TableCell>
@@ -56,5 +55,5 @@ export default function CheckoutSummaryTable({ items }) {
         </TableBody>
       </Table>
     </Paper>
-  )
+  );
 }

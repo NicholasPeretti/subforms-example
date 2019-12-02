@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const validationSchema = yup.object({
-  [ADDRESS]: yup.object(SubFormAddressMeta.validationSchema)
+  [ADDRESS]: yup.object(SubFormAddressMeta.validationSchema())
 });
 
 export default function RouteCheckout() {

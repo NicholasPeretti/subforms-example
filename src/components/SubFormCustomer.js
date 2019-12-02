@@ -11,10 +11,10 @@ export const defaultValues = {
   [EMAIL]: SubFormEmailMeta.defaultValues
 };
 
-export const validationSchema = {
-  ...SubFormCustomerAnagraphicMeta.validationSchema(true),
-  [EMAIL]: SubFormEmailMeta.validationSchema(true)
-};
+export const validationSchema = () => ({
+  ...SubFormCustomerAnagraphicMeta.validationSchema({ isRequired: true }),
+  [EMAIL]: SubFormEmailMeta.validationSchema({ isRequired: true })
+});
 
 window.validationSchema = validationSchema;
 

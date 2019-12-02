@@ -21,8 +21,8 @@ const defaultValues = {
 };
 
 const validationSchema = yup.object({
-  ...SubFormCustomerAnagraphicMeta.validationSchema(true),
-  [EMAIL]: SubFormEmailMeta.validationSchema(true),
+  ...SubFormCustomerAnagraphicMeta.validationSchema({ isRequired: true }),
+  [EMAIL]: SubFormEmailMeta.validationSchema({ isRequired: true }),
   [ADDRESS]: yup.object(SubFormAddressMeta.validationSchema)
 });
 
@@ -45,7 +45,7 @@ export default function RouteAnonymousCheckout() {
             <Form>
               <Grid container spacing={2}>
                 <h3>Who should receive the package?</h3>
-                <SubFormCustomerAnagraphic />
+                <SubFormCustomerAnagraphic namespace={CUSTOMER} />
                 <h3>Where should we send updates about the shipping?</h3>
                 <Grid item xs={12}>
                   <SubFormEmail namespace={EMAIL} />
