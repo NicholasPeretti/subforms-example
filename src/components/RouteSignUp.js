@@ -19,7 +19,11 @@ const defaultValues = {
 
 const validationSchema = yup.lazy(values =>
   yup.object({
-    [CUSTOMER]: yup.object(SubFormCustomerMeta.validationSchema()),
+    [CUSTOMER]: yup.object(
+      SubFormCustomerMeta.validationSchema({
+        values: values[CUSTOMER]
+      })
+    ),
     [PASSWORD]: SubFormPasswordCheckMeta.validationSchema({
       values: values[PASSWORD]
     }),
