@@ -45,7 +45,7 @@ export default function RouteAnonymousCheckout() {
             <Form>
               <Grid container spacing={2}>
                 <h3>Who should receive the package?</h3>
-                <SubFormCustomerAnagraphic namespace={CUSTOMER} />
+                <SubFormCustomerAnagraphic />
                 <h3>Where should we send updates about the shipping?</h3>
                 <Grid item xs={12}>
                   <SubFormEmail namespace={EMAIL} />
