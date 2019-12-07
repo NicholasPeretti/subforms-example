@@ -18,7 +18,7 @@ export const defaultValues = {
 };
 
 export const validationSchema = ({ values }) => {
-  return yup.object({
+  return {
     [PASSWORD]: yup
       .string()
       .required(ERROR_REQUIRED)
@@ -31,7 +31,7 @@ export const validationSchema = ({ values }) => {
         ERROR_UNMATCHING_PASSWORDS,
         value => value === values[PASSWORD]
       )
-  });
+  };
 };
 
 export default function SubFormPasswordCheck({ namespace }) {
